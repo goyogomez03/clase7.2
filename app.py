@@ -144,7 +144,7 @@ def procesar_texto(texto):
 # Crear visualizaciones
 def crear_visualizaciones(resultados):
     col1, col2 = st.columns(2)
-       with col1:
+        with col1:
         st.subheader("Análisis de Sentimiento y Subjetividad")
         sentimiento_norm = (resultados["sentimiento"] + 1) / 2
         st.write("**Sentimiento:**")
@@ -155,5 +155,6 @@ def crear_visualizaciones(resultados):
             st.error(f"📉 Negativo ({resultados['sentimiento']:.2f})")
         else:
             st.info(f"Neutral ({resultados['sentimiento']:.2f})")
+
 
 
