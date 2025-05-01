@@ -8,6 +8,37 @@ from googletrans import Translator
 # -------------------- CONFIGURACIÓN GENERAL --------------------
 st.set_page_config(page_title="📊 Analizador de Texto Inteligente", page_icon="🧠", layout="wide")
 
+# 🎨 Estilos con colores pasteles
+st.markdown("""
+    <style>
+        body {
+            background-color: #FFF8F0;
+        }
+        .stApp {
+            background-color: #FFF8F0;
+        }
+        h1, h2, h3 {
+            color: #6B4C9A;
+        }
+        .block-container {
+            padding: 2rem;
+        }
+        .css-1cpxqw2 {
+            background-color: #F6E7D8 !important;
+        }
+        .stTextArea textarea {
+            background-color: #FFF0F5 !important;
+            color: #4B4453 !important;
+        }
+        .st-bb {
+            background-color: #F0F9F9 !important;
+        }
+        .stProgress > div > div > div {
+            background-color: #B3E5FC !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 st.markdown("<h1 style='text-align: center;'>📝 Analizador de Texto con TextBlob</h1>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center; font-size: 16px;'>Analiza el sentimiento, subjetividad y frecuencia de palabras en tu texto</div>", unsafe_allow_html=True)
 st.markdown("---")
@@ -33,7 +64,7 @@ if texto_entrada:
     sentimiento = blob.sentiment.polarity
     subjetividad = blob.sentiment.subjectivity
 
-    # Frases traducidas
+    # Traducción
     traductor = Translator()
     frases = [str(oracion) for oracion in blob.sentences]
     frases_traducidas = []
@@ -44,7 +75,7 @@ if texto_entrada:
         except:
             frases_traducidas.append((frase, "[Error al traducir]"))
 
-    # Contador de palabras sin stopwords
+    # Palabras frecuentes
     texto_limpio = re.sub(r"[^\w\s]", "", texto_entrada.lower())
     palabras = texto_limpio.split()
     STOP_WORDS = set([
@@ -100,5 +131,6 @@ if texto_entrada:
         st.info("No se encontraron palabras frecuentes.")
 else:
     st.info("🕵️‍♀️ Ingresa un texto o sube un archivo para comenzar el análisis.")
+
 
 
