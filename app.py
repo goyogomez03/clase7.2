@@ -6,13 +6,13 @@ from googletrans import Translator
 
 # Configuración de la página
 st.set_page_config(
-    page_title="Analizador de Texto Simple😎",
+    page_title="Analizador de Texto Simple",
     page_icon="📊",
     layout="wide"
 )
 
 # Título y descripción
-st.title("📝 Analizador de Texto con TextBlob")
+st.title("📝 Analizador de Texto con TextBlob😎")
 st.markdown("""
 Esta aplicación utiliza TextBlob para realizar un análisis básico de texto:
 - Análisis de sentimiento y subjetividad
